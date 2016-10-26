@@ -17,48 +17,47 @@ class TicketController extends Controller
 		$categories = TicketCategory::all();
 		return view('tickets.create', compact('categories'));
 	}
-	
+
 	public function store(Request $request, AppMailer $mailer)
 	{
     	$this->validate($request, [
-			'title'     => 'required',
-			'category'  => 'required',
-			'priority'  => 'required',
-			'message'   => 'required'
-        ]);
+				'title'     => 'required',
+				'category'  => 'required',
+				'priority'  => 'required',
+				'message'   => 'required'
+      ]);
 
-        $ticket = new Ticket([
-		'title'     => $request->input('title'),
-		'user_email' => Auth::user()->email,
-            	'ticket_id' => strtoupper(str_random(10)),
-            	'category_id'  => $request->input('category'),
-            	'priority'  => $request->input('priority'),
-            	'message'   => $request->input('message'),
-            	'status'    => "Open",
-        ]);
+      $ticket = new Ticket([
+				'title' 				=> $request->input('title'),
+				'user_email'	 	=> Auth::user()->email,
+        'ticket_id' 		=> strtoupper(str_random(10)),
+        'category_id'  	=> $request->input('category'),
+      	'priority'  		=> $request->input('priority'),
+        'message'   		=> $request->input('message'),
+      	'status'    		=> "Open",
+      ]);
 
-        $ticket->save();
+      $ticket->save();
+      $mailer->sendTicketInformation(Auth::user(), $ticket);
 
-        $mailer->sendTicketInformation(Auth::user(), $ticket);
-
-        return redirect()->back()->with("status", "A ticket with ID: #$ticket->ticket_id has been opened.");
+      return redirect()->back()->with("status", "A ticket with ID: #$ticket->ticket_id has been opened.");
 	}
 
 	public function index()
 	{
-		$tickets = Ticket::where('user_email', Auth::user()->email)->paginate(10);
+		$tickets = Ticket::where('user_email', Auth::user()->email)->paginate(25);
 		$categories = TicketCategory::all();
 		return view('tickets.user', compact('tickets', 'categories'));
 	}
 
 	public function show($ticket_id)
 	{
-    	$ticket = PureIntellect\Models\Ticket::where('ticket_id', $ticket_id)->firstOrFail();
+    	$ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
 		$category = $ticket->category;
 		$comments = $ticket->comments;
 		return view('tickets.show', compact('ticket', 'category','comments'));
 	}
-	
+
 	public function admin()
 	{
     	$tickets = \App\Ticket::paginate(10);
@@ -73,7 +72,7 @@ class TicketController extends Controller
     	$ticket->save();
     	$ticketOwner = $ticket->user;
     	$mailer->sendTicketStatusNotification($ticketOwner, $ticket);
-    	
+
     	return redirect()->back()->with("status", "The ticket has been closed.");
 	}
 }

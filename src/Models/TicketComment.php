@@ -1,4 +1,4 @@
-<?php namespace Pureintellect\Tickets\Models;
+<?php namespace PureIntellect\Tickets\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,4 +17,3 @@ class TicketComment extends Model
     		return $this->belongsTo(User::class,'email', 'user_email');
 	}
 }
-

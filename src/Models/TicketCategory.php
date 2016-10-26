@@ -1,4 +1,4 @@
-<?php namespace Pureintellect\Tickets\Models;
+<?php namespace PureIntellect\Tickets\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,4 +12,3 @@ class TicketCategory extends Model
 		return $this->hasMany(Ticket::class);
 	}
 }
-
