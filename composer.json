@@ -1,0 +1,25 @@
+{
+	"name": "pureintellect/tickets",
+	"description": "Laravel Ticketing system",
+	"authors": [
+		{
+			"name": "PureIntellect.Com",
+			"email": "github@pureintellect.com",
+			"homepage": "https://www.pureintellect.com"
+		}	
+	],
+	"license": "MIT",
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">=5.5.9"
+	},
+	"autoload": {
+		"classmap": [
+			"src/"
+		],
+		"psr-4": {
+			"App\\": "app/",
+			"PureIntellect\\Tickets\\": "packages/pureintellect/tickets/src/"
+		}
+	}
+}
