@@ -11,11 +11,11 @@ class TicketsServiceProvider extends ServiceProvider
 	 * @return void
 	 */
 	 public function boot(){
-	 	require __DIR__ . '/../../vendor/autoload.php';
-	 	$this->loadViewsFrom(__DIR__.'/resources/views', 'tickets');
+	 	require __DIR__ . '/../../../autoload.php';
+	 	$this->loadViewsFrom(__DIR__.'/../resources/views', 'tickets');
 	 	//	$this->loadMigrationsFrom(__DIR__.'/resources/migrations', 'tickets');
 
-		$this->publishes([__DIR__.'/resources/migrations/' => database_path('migrations')], 'migrations');
+		$this->publishes([__DIR__.'/../resources/migrations/' => database_path('migrations')], 'migrations');
 
 	 }
 
