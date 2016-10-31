@@ -12,9 +12,8 @@ class TicketsServiceProvider extends ServiceProvider
 	 */
 	 public function boot(){
 	 	require __DIR__ . '/../../../autoload.php';
-	 	$this->loadViewsFrom(__DIR__.'/../resources/views', 'tickets');
-	 	//	$this->loadMigrationsFrom(__DIR__.'/resources/migrations', 'tickets');
 
+	 	$this->loadViewsFrom(__DIR__.'/../resources/views', 'tickets');
 		$this->publishes([__DIR__.'/../resources/migrations/' => database_path('migrations')], 'migrations');
 
 	 }

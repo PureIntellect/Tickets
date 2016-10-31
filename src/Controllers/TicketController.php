@@ -15,7 +15,7 @@ class TicketController extends Controller
 	public function create()
 	{
 		$categories = TicketCategory::all();
-		return view('Tickets::tickets.create', compact('categories'));
+		return view('tickets::create', compact('categories'));
 	}
 
 	public function store(Request $request, AppMailer $mailer)
@@ -47,7 +47,7 @@ class TicketController extends Controller
 	{
 		$tickets = Ticket::where('user_email', Auth::user()->email)->paginate(25);
 		$categories = TicketCategory::all();
-		return view('Tickets::tickets.user', compact('tickets', 'categories'));
+		return view('tickets::user', compact('tickets', 'categories'));
 	}
 
 	public function show($ticket_id)
@@ -55,7 +55,7 @@ class TicketController extends Controller
     	$ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
 		$category = $ticket->category;
 		$comments = $ticket->comments;
-		return view('Tickets::tickets.show', compact('ticket', 'category','comments'));
+		return view('tickets::show', compact('ticket', 'category','comments'));
 	}
 
 	public function admin()
@@ -63,7 +63,7 @@ class TicketController extends Controller
     	$tickets = \App\Ticket::paginate(10);
     	$categories = \App\TicketCategory::all();
 
-    	return view('Tickets::tickets.index', compact('tickets', 'categories'));
+    	return view('tickets::index', compact('tickets', 'categories'));
 	}
 	public function close($ticket_id, AppMailer $mailer)
 	{

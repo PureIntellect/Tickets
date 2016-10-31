@@ -1,8 +1,5 @@
-@extends('master')
 
 @section('title', 'My Tickets')
-@section('heading1', 'My')
-@section('heading2','Tickets')
 @section('content')
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
