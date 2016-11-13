@@ -1,6 +1,6 @@
 # Spark Tickets
 
-Adds the ability to have a trouble ticket system integrated with Laravel Spark
+Adds the ability to have a trouble ticket system integrated with Laravel Spark.
 
 ## Planned / Desired Features
 
@@ -15,9 +15,18 @@ Adds the ability to have a trouble ticket system integrated with Laravel Spark
 
 ## Installation
 
-This package has yet to be submitted to packagist while still in intial development.
+This package is still in initial development. Feel free to contribute to speed up the process. These docs still need a lot of work.
 
+
+```html
+<!-- Tickets Link -->
+<li role="presentation">
+    <a href="#tickets" aria-controls="tickets" role="tab" data-toggle="tab">
+        <i class="fa fa-fw fa-btn fa-ticket"></i>Tickets
+    </a>
+</li>
+```
 
 ## Contributing
 
-Please feel free to contribute. 
+Please feel free to contribute. This project gets worked on in my spare time, so anyone who can help move it along is greatly appreciated.
