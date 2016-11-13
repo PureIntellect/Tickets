@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Suppor Ticket Status</title>
+    <title>Support Ticket Status</title>
 </head>
 <body>
     <p>
