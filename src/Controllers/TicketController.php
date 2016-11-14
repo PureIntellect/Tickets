@@ -46,9 +46,10 @@ class TicketController extends Controller
 
 	public function index()
 	{
-		$tickets = Ticket::where('user_email', Auth::user()->email)->paginate(25);
-		$categories = TicketCategory::all();
-		return view('tickets::user', compact('tickets', 'categories'));
+		//$tickets = Ticket::where('user_email', Auth::user()->email)->paginate(25);
+		//$categories = TicketCategory::all();
+		//return view('tickets::user', compact('tickets', 'categories'));
+		return Ticket::all();
 	}
 
 	public function show($ticket_id)
