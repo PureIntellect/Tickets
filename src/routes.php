@@ -3,7 +3,7 @@
 /* Public Routes */
 
 Route::group(['prefix' => 'pi/tickets', 'middleware'=>'web'], function($router){
-	$router->get('/', 'PureIntellect\Tickets\Controllers\TicketController@index');
+	$router->get('/', '\PureIntellect\Tickets\Controllers\TicketController@index');
 
 	$router->get('/create', 'PureIntellect\Tickets\Controllers\TicketController@create');
 	$router->post('/create', 'PureIntellect\Tickets\Controllers\TicketController@store');

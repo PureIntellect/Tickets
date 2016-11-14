@@ -5,7 +5,7 @@ Vue.component('spark-kiosk-tickets', {
         return {
             'tickets': [],
             'users': [],
-            'newTickets': {
+            'createTicket': {
                 "user_id": null
             }
         };
@@ -39,9 +39,9 @@ Vue.component('spark-kiosk-tickets', {
          * Create Ticket.
          */
         createTicket: function(){
-            this.$http.post('/pi/tickets/create', this.newTicket)
+            this.$http.post('/pi/tickets/create', this.createTicket)
                 .then(response => {
-                    this.newTicket = {};
+                    this.createTicket = {};
                     this.getTickets();
                 });
         }
