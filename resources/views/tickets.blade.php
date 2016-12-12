@@ -1,4 +1,46 @@
 <spark-kiosk-tickets inline-template>
+  <!-- Create Ticket -->
+  <div class="panel panel-default">
+      <div class="panel-heading">Create Ticket</div>
+
+      <div class="panel-body">
+          <div class="alert alert-info">
+              Create a ticket for a customer
+          </div>
+
+          <form class="form-horizontal" role="form">
+
+              <!-- User -->
+              <div class="form-group">
+                  <label class="col-md-4 control-label">User</label>
+
+                  <div class="col-md-6">
+                      <select class="form-control" name="user_id" v-model="newTicket.user_id">
+                          <option value="">Choose User...</option>
+                          <option value="@{{ usr.id }}" v-for="usr in users">@{{ usr.name }}</option>
+                      </select>
+                  </div>
+              </div>
+
+              <!-- Notification -->
+              <div class="form-group">
+                  <label class="col-md-4 control-label">Ticket</label>
+                  <div class="col-md-6">
+                      <textarea class="form-control" name="ticket"  v-model="newTicket.body" rows="7" style="font-family: monospace;">
+                      </textarea>
+                  </div>
+              </div>
+              <!-- Create Button -->
+              <div class="form-group">
+                  <div class="col-md-offset-4 col-md-6">
+                      <button type="submit" class="btn btn-primary" @click.prevent="createTicket">
+                          Create
+                      </button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
     <!-- Open Tickets List -->
         <div class="panel panel-default" v-cloak>
             <div class="panel-heading">Recent Tickets</div>
