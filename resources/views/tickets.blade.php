@@ -21,12 +21,23 @@
                       </select>
                   </div>
               </div>
+              <!-- Category -->
+              <div class="form-group">
+                  <label class="col-md-4 control-label">Category</label>
 
-              <!-- Notification -->
+                  <div class="col-md-6">
+                      <select class="form-control" name="user_id" v-model="newTicket.category">
+                          <option value="">Choose Category...</option>
+                          <option value="@{{ cat.id }}" v-for="cat in categories">@{{ cate.name }}</option>
+                      </select>
+                  </div>
+              </div>
+
+              <!-- Ticket -->
               <div class="form-group">
                   <label class="col-md-4 control-label">Ticket</label>
                   <div class="col-md-6">
-                      <textarea class="form-control" name="ticket"  v-model="newTicket.body" rows="7" style="font-family: monospace;">
+                      <textarea class="form-control" name="ticket"  v-model="newTicket.body" rows="4" style="font-family: monospace;">
                       </textarea>
                   </div>
               </div>

@@ -6,7 +6,11 @@ Route::group(['prefix' => 'pi', 'middleware'=>'web'], function($router){
 	$router->get('/users', function(){
     return \App\User::all();
 	});
-	Route::group(['prefix' => 'pi', 'middleware'=>'web'], function($router){
+	$router->get('/categories', function(){
+		return \PureIntellect\Tickets\TicketCategory::all();
+	});
+
+	Route::group(['prefix' => 'tickets', 'middleware'=>'web'], function($router){
 		$router->get('/', '\PureIntellect\Tickets\Controllers\TicketController@index');
 
 		$router->get('/create', 'PureIntellect\Tickets\Controllers\TicketController@create');

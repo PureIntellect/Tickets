@@ -5,14 +5,16 @@ Vue.component('spark-kiosk-tickets', {
         return {
             'tickets': [],
             'users': [],
-            'createTicket': {
-                "user_id": null
+            'newTicket': {
+                "user_id": null,
+                "category": null,
             }
         };
     },
     ready(){
         this.getTickets();
         this.getUsers();
+        this.getCategories();
     },
     methods: {
         /**
@@ -34,14 +36,19 @@ Vue.component('spark-kiosk-tickets', {
                     this.users = response.data;
                 });
         },
-
+        getCategories: function(){
+            this.$http.get('/pi/categories')
+                .then(response => {
+                    this.categories = response.data;
+                });
+        },
         /**
          * Create Ticket.
          */
         createTicket: function(){
-            this.$http.post('/pi/tickets/create', this.createTicket)
+            this.$http.post('/pi/tickets/create', this.newTicket)
                 .then(response => {
-                    this.createTicket = {};
+                    this.newTicket = {};
                     this.getTickets();
                 });
         }
