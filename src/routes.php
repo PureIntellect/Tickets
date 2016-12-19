@@ -7,7 +7,7 @@ Route::group(['prefix' => 'pi', 'middleware'=>'web'], function($router){
     return \App\User::all();
 	});
 	$router->get('/categories', function(){
-		return \PureIntellect\Tickets\TicketCategory::all();
+		return \PureIntellect\Tickets\Models\TicketCategory::all();
 	});
 
 	Route::group(['prefix' => 'tickets', 'middleware'=>'web'], function($router){
