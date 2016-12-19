@@ -15,8 +15,8 @@ class TicketsServiceProvider extends ServiceProvider
 
 	 	$this->loadViewsFrom(__DIR__.'/../resources/views', 'tickets');
 		$this->publishes([
-			__DIR__.'/resources/assets/js/' => base_path('resources/assets/js/components/'),
-			__DIR__ . '/resources/views/' => base_path('resources/views/vendor/PureIntellect/Tickets/'),
+			__DIR__.'/../resources/assets/js/' => base_path('resources/assets/js/components/'),
+			__DIR__ . '/../resources/views/' => base_path('resources/views/vendor/PureIntellect/Tickets/'),
 			__DIR__.'/../resources/migrations/' => database_path('migrations')], 'migrations');
 
 	 }
