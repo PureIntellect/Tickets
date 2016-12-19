@@ -26,7 +26,7 @@
                   <label class="col-md-4 control-label">Category</label>
 
                   <div class="col-md-6">
-                      <select class="form-control" name="user_id" v-model="newTicket.category">
+                      <select class="form-control" name="category_id" v-model="newTicket.category">
                           <option value="">Choose Category...</option>
                           <option value="@{{ cat.id }}" v-for="cat in categories">@{{ cat.name }}</option>
                       </select>
