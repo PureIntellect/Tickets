@@ -80,6 +80,6 @@ class TicketController extends Controller
 
 	/* Support functions */
 	public function getPriority(){
-		return Config::get('PureIntellect\Tickets.priority');
+		return \App\Config::get('PureIntellect\Tickets.priority');
 	}
 }
