@@ -38,6 +38,14 @@ class CreateTicketTable extends Migration
     		$table->text('comment');
     		$table->timestamps();
 		  });
+      Schema::create('ticket_status', function(Blueprint $table){
+        $table->increments('id');
+        $table->string('name');
+      });
+      Schema::create('ticket_priority', function(Blueprint $table){
+        $table->increments('id');
+        $table->string('name');
+      });
     }
 
     /**
@@ -50,5 +58,7 @@ class CreateTicketTable extends Migration
       Schema::dropIfExists('tickets');
       Schema::dropIfExists('ticket_categories');
       Schema::dropIfExists('ticket_comments');
+      Schema::dropIfExists('ticket_status');
+      Schema::dropIfExists('ticket_priority');
     }
 }

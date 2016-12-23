@@ -20,4 +20,12 @@ class Ticket extends Model
 	{
     	return $this->hasMany(TicketComment::class);
 	}
+	public function status()
+	{
+			return $this->hasOne(TicketStatus::class);
+	}
+	public function priority()
+	{
+			return $this->hasOne(TicketPriority::class);
+	}
 }
