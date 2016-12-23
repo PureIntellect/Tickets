@@ -56,8 +56,8 @@
               <div class="col-md-8">
                 <!-- Ticket -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Ticket</label>
-                    <div class="col-md-6">
+                    <label class="col-md-2 control-label">Ticket</label>
+                    <div class="col-md-10">
                         <textarea class="form-control" name="ticket"  v-model="newTicket.body" rows="6" style="font-family: monospace;">
                         </textarea>
                     </div>
