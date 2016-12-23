@@ -13,7 +13,6 @@ class TicketsServiceProvider extends ServiceProvider
 	 public function boot(){
 	 	require __DIR__ . '/../../../autoload.php';
 
-		$this->package('pureintellect/tickets');
 	 	$this->loadViewsFrom(__DIR__.'/../resources/views', 'tickets');
 		$this->mergeConfigFrom(__DIR__.'/../config/tickets.php', 'tickets');
 		$this->publishes([
