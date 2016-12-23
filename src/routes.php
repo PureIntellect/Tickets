@@ -9,7 +9,12 @@ Route::group(['prefix' => 'pi', 'middleware'=>'web'], function($router){
 	$router->get('/categories', function(){
 		return \PureIntellect\Tickets\Models\TicketCategory::all();
 	});
-	$router->get('/priority', '\PureIntellect\Tickets\Controllers\TicketController@getPriority');
+	$router->get('/status', function(){
+		return \PureIntellect\Tickets\Models\TicketStatus::all();
+	});
+	$router->get('/priority', function(){
+		return \PureIntellect\Tickets\Models\TicketPriority::all();
+	});
 
 	Route::group(['prefix' => 'tickets', 'middleware'=>'web'], function($router){
 		$router->get('/', '\PureIntellect\Tickets\Controllers\TicketController@index');
