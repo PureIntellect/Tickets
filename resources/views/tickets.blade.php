@@ -9,65 +9,67 @@
           </div>
 
           <form class="form-horizontal" role="form">
+            <div class="row">
+              <div class="col-md-6">
+                <!-- User -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">User</label>
 
-              <!-- User -->
-              <div class="form-group">
-                  <label class="col-md-4 control-label">User</label>
-
-                  <div class="col-md-6">
-                      <select class="form-control" name="user_id" v-model="newTicket.user_id">
-                          <option value="">Choose User...</option>
-                          <option value="@{{ usr.id }}" v-for="usr in users">@{{ usr.name }}</option>
-                      </select>
-                  </div>
+                    <div class="col-md-6">
+                        <select class="form-control" name="user_id" v-model="newTicket.user_id">
+                            <option value="">Choose User...</option>
+                            <option value="@{{ usr.id }}" v-for="usr in users">@{{ usr.name }}</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Category -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Category</label>
+                    <div class="col-md-6">
+                        <select class="form-control" name="category_id" v-model="newTicket.category">
+                            <option value="">Choose Category...</option>
+                            <option value="@{{ cat.id }}" v-for="cat in categories">@{{ cat.name }}</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Status -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Status</label>
+                    <div class="col-md-6">
+                        <select class="form-control" name="category_id" v-model="newTicket.status">
+                            <option value="">Choose Status...</option>
+                            <option value="@{{ stat.id }}" v-for="cat in status">@{{ stat.name }}</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Priority -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Priority</label>
+                    <div class="col-md-6">
+                        <select class="form-control" name="category_id" v-model="newTicket.priority">
+                            <option value="">Choose Priority...</option>
+                            <option value="@{{ pri.id }}" v-for="pri in priority">@{{ pri.name }}</option>
+                        </select>
+                    </div>
+                </div>
               </div>
-              <!-- Category -->
-              <div class="form-group">
-                  <label class="col-md-4 control-label">Category</label>
-                  <div class="col-md-6">
-                      <select class="form-control" name="category_id" v-model="newTicket.category">
-                          <option value="">Choose Category...</option>
-                          <option value="@{{ cat.id }}" v-for="cat in categories">@{{ cat.name }}</option>
-                      </select>
-                  </div>
-              </div>
-              <!-- Status -->
-              <div class="form-group">
-                  <label class="col-md-4 control-label">Status</label>
-                  <div class="col-md-6">
-                      <select class="form-control" name="category_id" v-model="newTicket.status">
-                          <option value="">Choose Status...</option>
-                          <option value="@{{ stat.id }}" v-for="cat in status">@{{ stat.name }}</option>
-                      </select>
-                  </div>
-              </div>
-              <!-- Priority -->
-              <div class="form-group">
-                  <label class="col-md-4 control-label">Priority</label>
-                  <div class="col-md-6">
-                      <select class="form-control" name="category_id" v-model="newTicket.priority">
-                          <option value="">Choose Priority...</option>
-                          <option value="@{{ pri.id }}" v-for="pri in priority">@{{ pri.name }}</option>
-                      </select>
-                  </div>
-              </div>
-
-
-              <!-- Ticket -->
-              <div class="form-group">
-                  <label class="col-md-4 control-label">Ticket</label>
-                  <div class="col-md-6">
-                      <textarea class="form-control" name="ticket"  v-model="newTicket.body" rows="4" style="font-family: monospace;">
-                      </textarea>
-                  </div>
-              </div>
-              <!-- Create Button -->
-              <div class="form-group">
-                  <div class="col-md-offset-4 col-md-6">
-                      <button type="submit" class="btn btn-primary" @click.prevent="createTicket">
-                          Create
-                      </button>
-                  </div>
+              <div class="col-md-6">
+                <!-- Ticket -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Ticket</label>
+                    <div class="col-md-6">
+                        <textarea class="form-control" name="ticket"  v-model="newTicket.body" rows="4" style="font-family: monospace;">
+                        </textarea>
+                    </div>
+                </div>
+                <!-- Create Button -->
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-6" pull-right>
+                        <button type="submit" class="btn btn-primary" @click.prevent="createTicket">
+                            Create
+                        </button>
+                    </div>
+                </div>
               </div>
           </form>
       </div>
