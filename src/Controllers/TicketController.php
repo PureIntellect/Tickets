@@ -77,4 +77,9 @@ class TicketController extends Controller
 
     	return redirect()->back()->with("status", "The ticket has been closed.");
 	}
+
+	/* Support functions */
+	public function getPriority(){
+		return Config::get('PureIntellect\Tickets.priority');
+	}
 }
