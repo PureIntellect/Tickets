@@ -10,7 +10,7 @@
 
           <form class="form-horizontal" role="form">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <!-- User -->
                 <div class="form-group">
                     <label class="col-md-4 control-label">User</label>
@@ -53,18 +53,18 @@
                     </div>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <!-- Ticket -->
                 <div class="form-group">
                     <label class="col-md-4 control-label">Ticket</label>
                     <div class="col-md-6">
-                        <textarea class="form-control" name="ticket"  v-model="newTicket.body" rows="4" style="font-family: monospace;">
+                        <textarea class="form-control" name="ticket"  v-model="newTicket.body" rows="6" style="font-family: monospace;">
                         </textarea>
                     </div>
                 </div>
                 <!-- Create Button -->
                 <div class="form-group">
-                    <div class="col-md-offset-4 col-md-6" pull-right>
+                    <div class="col-md-offset-4 col-md-6" class="pull-right">
                         <button type="submit" class="btn btn-primary" @click.prevent="createTicket">
                             Create
                         </button>
