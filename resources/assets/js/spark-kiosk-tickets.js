@@ -5,9 +5,14 @@ Vue.component('spark-kiosk-tickets', {
         return {
             'tickets': [],
             'users': [],
+            'categories': [],
+            'status': [],
+            'priority': [],
             'newTicket': {
                 "user_id": null,
                 "category": null,
+                "status": null,
+                "priority": null,
             }
         };
     },
@@ -15,6 +20,8 @@ Vue.component('spark-kiosk-tickets', {
         this.getTickets();
         this.getUsers();
         this.getCategories();
+        this.getStatus();
+        this.getPriority();
     },
     methods: {
         /**
@@ -40,6 +47,18 @@ Vue.component('spark-kiosk-tickets', {
             this.$http.get('/pi/categories')
                 .then(response => {
                     this.categories = response.data;
+                });
+        },
+        getStatus: function(){
+            this.$http.get('/pi/status')
+                .then(response => {
+                    this.status = response.data;
+                });
+        },
+        getPriority: function(){
+            this.$http.get('/pi/priority')
+                .then(response => {
+                    this.priority = response.data;
                 });
         },
         /**

@@ -24,7 +24,6 @@
               <!-- Category -->
               <div class="form-group">
                   <label class="col-md-4 control-label">Category</label>
-
                   <div class="col-md-6">
                       <select class="form-control" name="category_id" v-model="newTicket.category">
                           <option value="">Choose Category...</option>
@@ -32,6 +31,27 @@
                       </select>
                   </div>
               </div>
+              <!-- Status -->
+              <div class="form-group">
+                  <label class="col-md-4 control-label">Status</label>
+                  <div class="col-md-6">
+                      <select class="form-control" name="category_id" v-model="newTicket.status">
+                          <option value="">Choose Status...</option>
+                          <option value="@{{ stat.id }}" v-for="cat in status">@{{ stat.name }}</option>
+                      </select>
+                  </div>
+              </div>
+              <!-- Priority -->
+              <div class="form-group">
+                  <label class="col-md-4 control-label">Priority</label>
+                  <div class="col-md-6">
+                      <select class="form-control" name="category_id" v-model="newTicket.priority">
+                          <option value="">Choose Priority...</option>
+                          <option value="@{{ pri.id }}" v-for="pri in priority">@{{ pri.name }}</option>
+                      </select>
+                  </div>
+              </div>
+
 
               <!-- Ticket -->
               <div class="form-group">
