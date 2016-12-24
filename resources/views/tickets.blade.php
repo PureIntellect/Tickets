@@ -18,7 +18,7 @@
                     <div class="col-md-6">
                         <select class="form-control" name="user_id" v-model="newTicket.user_id">
                             <option value="">Choose User...</option>
-                            <option value="@{{ usr.id }}" v-for="usr in users">@{{ usr.name }}</option>
+                            <option v-for="usr in users" :value="usr.id">@{{ usr.name }}</option>
                         </select>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="col-md-6">
                         <select class="form-control" name="category_id" v-model="newTicket.category">
                             <option value="">Choose Category...</option>
-                            <option value="@{{ cat.id }}" v-for="cat in categories">@{{ cat.name }}</option>
+                            <option v-for="cat in categories" :value="cat.id">@{{ cat.name }}</option>
                         </select>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                     <div class="col-md-6">
                         <select class="form-control" name="category_id" v-model="newTicket.status">
                             <option value="">Choose Status...</option>
-                            <option value="@{{ stat.id }}" v-for="stat in statuses">@{{ stat.name }}</option>
+                            <option v-for="stat in statuses" :value="stat.id">@{{ stat.name }}</option>
                         </select>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     <div class="col-md-6">
                         <select class="form-control" name="category_id" v-model="newTicket.priority">
                             <option value="">Choose Priority...</option>
-                            <option value="@{{ pri.id }}" v-for="pri in priorities">@{{ pri.name }}</option>
+                            <option v-for="pri in priorities" value="pri.id">@{{ pri.name }}</option>
                         </select>
                     </div>
                 </div>

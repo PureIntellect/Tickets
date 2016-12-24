@@ -16,7 +16,7 @@ Vue.component('spark-kiosk-tickets', {
             }
         };
     },
-    ready(){
+    mounted(){
         this.getTickets();
         this.getUsers();
         this.getCategories();
