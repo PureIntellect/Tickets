@@ -38,7 +38,7 @@
                     <div class="col-md-6">
                         <select class="form-control" name="category_id" v-model="newTicket.status">
                             <option value="">Choose Status...</option>
-                            <option value="@{{ stat.id }}" v-for="stat in status">@{{ stat.name }}</option>
+                            <option value="@{{ stat.id }}" v-for="stat in statuses">@{{ stat.name }}</option>
                         </select>
                     </div>
                 </div>
