@@ -50,13 +50,13 @@ Vue.component('spark-kiosk-tickets', {
                 });
         },
         getStatuses: function(){
-            this.$http.get('/pi/status')
+            this.$http.get('/pi/statuses')
                 .then(response => {
                     this.statuses = response.data;
                 });
         },
         getPriorities: function(){
-            this.$http.get('/pi/priority')
+            this.$http.get('/pi/priorities')
                 .then(response => {
                     this.priorities = response.data;
                 });
