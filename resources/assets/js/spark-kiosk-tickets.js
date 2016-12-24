@@ -3,17 +3,17 @@ Vue.component('spark-kiosk-tickets', {
     ],
     data() {
         return {
-            'tickets': [],
-            'users': [],
-            'categories': [],
-            'statuses': [],
-            'priorities': [],
-            'newTicket': {
-                "user_id": null,
-                "category": null,
-                "status": null,
-                "priority": null,
-            }
+          'tickets': [],
+          'users': [],
+          'categories': [],
+          'statuses': [],
+          'priorities': [],
+          newTicket: new SparkForm({
+            user_email: '',
+            category: '',
+            status: '',
+            priority: '',
+          })
         };
     },
     mounted(){
@@ -64,13 +64,13 @@ Vue.component('spark-kiosk-tickets', {
         /**
          * Create Ticket.
          */
-        createTicket: function(){
-            this.$http.post('/pi/tickets/create', this.newTicket)
-                .then(response => {
-                    this.newTicket = {};
-                    this.getTickets();
-                });
+        createTicket(){
+          Spark.post('/pi/tickets/create', this.newTicket)
+            .then(response => {
+              console.log(response);
+              this.newTicket = {};
+              this.getTickets();
+            });
         }
-
     }
 });

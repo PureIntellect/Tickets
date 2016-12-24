@@ -23,19 +23,19 @@ class TicketController extends Controller
 	public function store(Request $request)
 	{
     	$this->validate($request, [
-				'user_id'     => 'required|email',
-				'category'  => 'required',
-				'priority'  => 'required',
-				'message'   => 'required'
+				'user_email'	=> 'required|email',
+				'category'  	=> 'required',
+				'priority'  	=> 'required',
+				'message'   	=> 'required'
       ]);
 
       $ticket = new Ticket([
-				'user_email'	 	=> $request->input('user_id'),
+				'user_email'	 	=> $request->input('user_email'),
         'ticket_id' 		=> strtoupper(str_random(10)),
         'category_id'  	=> $request->input('category'),
       	'priority'  		=> $request->input('priority'),
         'message'   		=> $request->input('message'),
-      	'status'    		=> 1,
+      	'status'    		=> $request->input('status'),
       ]);
 
       $ticket->save();
