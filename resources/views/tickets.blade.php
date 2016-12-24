@@ -13,12 +13,12 @@
 
                 <!-- User -->
                 <div class="form-group" :class="{'has-error': newTicket.errors.has('user_email')}">
-                  <span class="help-block" v-show="newTicket.errors.has('name')">
+                  <span class="help-block" v-show="newTicket.errors.has('user_email')">
                     @{{ newTicket.errors.get('user_email') }}
                   </span>
                     <label class="col-md-4 control-label">User</label>
                     <div class="col-md-6">
-                        <select class="form-control" name="user_id" v-model="newTicket.user_id">
+                        <select class="form-control" name="user_email" v-model="newTicket.user_email">
                             <option value="">Choose User...</option>
                             <option v-for="usr in users" :value="usr.email">@{{ usr.name }}</option>
                         </select>
@@ -26,18 +26,21 @@
                 </div>
 
                 <!-- Category -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Category</label>
-                    <div class="col-md-6">
-                        <select class="form-control" name="category_id" v-model="newTicket.category">
-                            <option value="">Choose Category...</option>
-                            <option v-for="cat in categories" :value="cat.id">@{{ cat.name }}</option>
-                        </select>
-                    </div>
+                <div class="form-group" :class="{'has-error': newTicket.errors.has('category')}">
+                  <span class="help-block" v-show="newTicket.errors.has('category')">
+                    @{{ newTicket.errors.get('category') }}
+                  </span>
+                  <label class="col-md-4 control-label">Category</label>
+                  <div class="col-md-6">
+                    <select class="form-control" name="category_id" v-model="newTicket.category">
+                      <option value="">Choose Category...</option>
+                      <option v-for="cat in categories" :value="cat.id">@{{ cat.name }}</option>
+                    </select>
+                  </div>
                 </div>
 
                 <!-- Status -->
-                <div class="form-group">
+                <div class="form-group" :class="{'has-error': newTicket.errors.has('status')}">
                     <label class="col-md-4 control-label">Status</label>
                     <div class="col-md-6">
                         <select class="form-control" name="category_id" v-model="newTicket.status">
@@ -48,7 +51,7 @@
                 </div>
 
                 <!-- Priority -->
-                <div class="form-group">
+                <div class="form-group" :class="{'has-error': newTicket.errors.has('priority')}">
                     <label class="col-md-4 control-label">Priority</label>
                     <div class="col-md-6">
                         <select class="form-control" name="category_id" v-model="newTicket.priority">
@@ -62,7 +65,7 @@
               <div class="col-md-8">
 
                 <!-- Ticket -->
-                <div class="form-group">
+                <div class="form-group" :class="{'has-error': newTicket.errors.has('ticket_body')}">
                     <label class="col-md-2 control-label">Ticket</label>
                     <div class="col-md-10">
                         <textarea class="form-control" name="ticket"  v-model="newTicket.body" rows="6" style="font-family: monospace;">
@@ -72,7 +75,7 @@
 
                 <!-- Create Button -->
                 <div class="form-group">
-                    <div class="col-md-offset-4 col-md-6" class="pull-right">
+                    <div class="col-md-offset-4 col-md-6 pull-right">
                         <button type="submit" class="btn btn-primary" @click="createTicket" :disable="newTicket.busy">
                             Create
                         </button>
