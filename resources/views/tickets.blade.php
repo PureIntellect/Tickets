@@ -12,12 +12,12 @@
               <div class="col-md-4">
 
                 <!-- User -->
-                <div class="form-group">
+                <div class="form-group" :class="{'has-error': form.errors.has('user_email')}">
                     <label class="col-md-4 control-label">User</label>
                     <div class="col-md-6">
                         <select class="form-control" name="user_id" v-model="newTicket.user_id">
                             <option value="">Choose User...</option>
-                            <option v-for="usr in users" :value="usr.id">@{{ usr.name }}</option>
+                            <option v-for="usr in users" :value="usr.email">@{{ usr.name }}</option>
                         </select>
                     </div>
                 </div>
@@ -47,6 +47,9 @@
                 <!-- Priority -->
                 <div class="form-group">
                     <label class="col-md-4 control-label">Priority</label>
+                    <span class="help-block" v-show="newTicket.errors.has('name')">
+                      @{{ newTicket.errors.get('user_email') }}
+                    </span>
                     <div class="col-md-6">
                         <select class="form-control" name="category_id" v-model="newTicket.priority">
                             <option value="">Choose Priority...</option>
@@ -70,7 +73,7 @@
                 <!-- Create Button -->
                 <div class="form-group">
                     <div class="col-md-offset-4 col-md-6" class="pull-right">
-                        <button type="submit" class="btn btn-primary" @click.prevent="createTicket">
+                        <button type="submit" class="btn btn-primary" @click="createTicket" :disable="newTicket.busy">
                             Create
                         </button>
                     </div>
