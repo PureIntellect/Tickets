@@ -13,6 +13,7 @@ Vue.component('spark-kiosk-tickets', {
             category: '',
             status: '',
             priority: '',
+            message:'',
           })
         };
     },
@@ -68,8 +69,7 @@ Vue.component('spark-kiosk-tickets', {
           Spark.post('/pi/tickets/create', this.newTicket)
             .then(response => {
               console.log(response);
-              this.newTicket = {};
-              this.getTickets();
+              //this.getTickets();
             });
         }
     }
