@@ -24,6 +24,7 @@ class TicketController extends Controller
 	{
     	$this->validate($request, [
 				'user_email'	=> 'required|email',
+				'title'				=> 'required',
 				'category'  	=> 'required',
 				'priority'  	=> 'required',
 				'message'   	=> 'required'
@@ -31,6 +32,7 @@ class TicketController extends Controller
 
       $ticket = new Ticket([
 				'user_email'	 	=> $request->input('user_email'),
+				'title'					=> $request->input('title'),
         'ticket_id' 		=> strtoupper(str_random(10)),
         'category_id'  	=> $request->input('category'),
       	'priority'  		=> $request->input('priority'),

@@ -10,6 +10,7 @@ Vue.component('spark-kiosk-tickets', {
           'priorities': [],
           newTicket: new SparkForm({
             user_email: '',
+            title:'',
             category: '',
             status: '',
             priority: '',
