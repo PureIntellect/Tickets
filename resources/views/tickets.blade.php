@@ -12,7 +12,10 @@
               <div class="col-md-4">
 
                 <!-- User -->
-                <div class="form-group" :class="{'has-error': form.errors.has('user_email')}">
+                <div class="form-group" :class="{'has-error': newTicket.errors.has('user_email')}">
+                  <span class="help-block" v-show="newTicket.errors.has('name')">
+                    @{{ newTicket.errors.get('user_email') }}
+                  </span>
                     <label class="col-md-4 control-label">User</label>
                     <div class="col-md-6">
                         <select class="form-control" name="user_id" v-model="newTicket.user_id">
@@ -47,9 +50,6 @@
                 <!-- Priority -->
                 <div class="form-group">
                     <label class="col-md-4 control-label">Priority</label>
-                    <span class="help-block" v-show="newTicket.errors.has('name')">
-                      @{{ newTicket.errors.get('user_email') }}
-                    </span>
                     <div class="col-md-6">
                         <select class="form-control" name="category_id" v-model="newTicket.priority">
                             <option value="">Choose Priority...</option>
@@ -134,4 +134,4 @@
       </div>
     </div>
   </div>
-</spark-kiosk-notify>
+</spark-kiosk-tickets>
