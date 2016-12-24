@@ -19,12 +19,23 @@ This package is still in initial development. Feel free to contribute to speed u
 
 
 ```html
+/*
+ * Package Service Providers...
+ */
+      PureIntellect\Tickets\TicketsServiceProvider::class,
+
+
 <!-- Tickets Link -->
 <li role="presentation">
     <a href="#tickets" aria-controls="tickets" role="tab" data-toggle="tab">
         <i class="fa fa-fw fa-btn fa-ticket"></i>Tickets
     </a>
 </li>
+
+<!-- Ticket Management -->
+<div role="tabpanel" class="tab-pane" id="tickets">
+     @include('tickets::tickets')
+</div>
 ```
 
 ## Contributing
