@@ -38,7 +38,7 @@
                     <div class="col-md-6">
                         <select class="form-control" name="category_id" v-model="newTicket.status">
                             <option value="">Choose Status...</option>
-                            <option value="@{{ stat.id }}" v-for="cat in status">@{{ stat.name }}</option>
+                            <option value="@{{ stat.id }}" v-for="stat in status">@{{ stat.name }}</option>
                         </select>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     <div class="col-md-6">
                         <select class="form-control" name="category_id" v-model="newTicket.priority">
                             <option value="">Choose Priority...</option>
-                            <option value="@{{ pri.id }}" v-for="pri in priority">@{{ pri.name }}</option>
+                            <option value="@{{ pri.id }}" v-for="pri in priorities">@{{ pri.name }}</option>
                         </select>
                     </div>
                 </div>

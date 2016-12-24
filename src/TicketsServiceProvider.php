@@ -19,7 +19,7 @@ class TicketsServiceProvider extends ServiceProvider
 			__DIR__.'/../config/tickets.php' => config_path('tickets.php'),
 			__DIR__.'/../resources/assets/js/' => base_path('resources/assets/js/components/'),
 			__DIR__ . '/../resources/views/' => base_path('resources/views/vendor/PureIntellect/Tickets/'),
-			__DIR__.'/../resources/migrations/' => database_path('migrations')], 'migrations');
+			__DIR__.'/../resources/migrations/' => database_path('migrations')]);
 	 }
 
 	 /**

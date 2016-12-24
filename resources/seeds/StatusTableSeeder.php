@@ -14,3 +14,4 @@ class StatusTableSeeder extends Seeder {
     );
   }
 }
+``
