@@ -36,7 +36,10 @@ This package is still in initial development. Feel free to contribute to speed u
 <div role="tabpanel" class="tab-pane" id="tickets">
      @include('tickets::tickets')
 </div>
+
+require('./spark-kiosk-tickets');
 ```
+
 
 ## Contributing
 
