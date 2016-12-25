@@ -73,7 +73,7 @@
                 <div class="form-group" :class="{'has-error': newTicket.errors.has('message')}">
                     <label class="col-md-2 control-label">Ticket</label>
                     <div class="col-md-10">
-                        <textarea class="form-control" name="message"  v-model="newTicket.message" rows="6" style="font-family: monospace;">
+                        <textarea class="form-control" name="message"  v-model="newTicket.message" rows="6">
                         </textarea>
                     </div>
                 </div>
