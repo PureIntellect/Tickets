@@ -7,8 +7,7 @@
           <div class="alert alert-info">
               Create a ticket for a customer
           </div>
-          <form action="/pi/tickets" role="form" method="POST" class="form-horizontal">
-            {{ method_field("PUT") }}
+          <form role="form" class="form-horizontal">
             <div class="row">
               <div class="col-md-4">
 
@@ -82,7 +81,7 @@
                 <!-- Create Button -->
                 <div class="form-group">
                     <div class="col-md-offset-4 col-md-6 pull-right">
-                        <button type="submit" class="btn btn-primary" @click="createTicket" :disable="newTicket.busy">
+                        <button class="btn btn-primary" @click.prevent="createTicket" :disabled="newTicket.busy">
                             Create
                         </button>
                     </div>
