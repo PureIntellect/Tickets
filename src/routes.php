@@ -16,7 +16,7 @@ Route::group(['prefix' => 'pi', 'middleware'=>'web'], function($router){
 		return \PureIntellect\Tickets\Models\TicketPriority::all();
 	});
 
-	Route::group(['prefix' => 'tickets', 'middleware'=>'web'], function($router){
+	Route::group(['prefix' => '/tickets', 'middleware'=>'web'], function($router){
 		$router->get('/', '\PureIntellect\Tickets\Controllers\TicketController@index');
 
 		$router->get('/create', 'PureIntellect\Tickets\Controllers\TicketController@create');
