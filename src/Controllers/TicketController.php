@@ -34,10 +34,10 @@ class TicketController extends Controller
 				'user_email'	 	=> $request->input('user_email'),
 				'title'					=> $request->input('title'),
         'ticket_id' 		=> strtoupper(str_random(10)),
-        'category_id'  	=> $request->input('category'),
+        'category'   		=> $request->input('category'),
       	'priority'  		=> $request->input('priority'),
         'message'   		=> $request->input('message'),
-      	'status'    		=> $request->input('status'),
+      	'status'    		=> $request->input('status') ? $request->input('status') : 1,
       ]);
 
       $ticket->save();

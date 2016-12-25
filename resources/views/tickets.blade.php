@@ -32,7 +32,7 @@
                   </span>
                   <label class="col-md-4 control-label">Category</label>
                   <div class="col-md-6">
-                    <select class="form-control" name="category_id" v-model="newTicket.category">
+                    <select class="form-control" name="category" v-model="newTicket.category">
                       <option value="">Choose Category...</option>
                       <option v-for="cat in categories" :value="cat.id">@{{ cat.name }}</option>
                     </select>
@@ -43,7 +43,7 @@
                 <div class="form-group" :class="{'has-error': newTicket.errors.has('status')}">
                     <label class="col-md-4 control-label">Status</label>
                     <div class="col-md-6">
-                        <select class="form-control" name="category_id" v-model="newTicket.status">
+                        <select class="form-control" name="status" v-model="newTicket.status">
                             <option value="">Choose Status...</option>
                             <option v-for="stat in statuses" :value="stat.id">@{{ stat.name }}</option>
                         </select>
@@ -54,9 +54,9 @@
                 <div class="form-group" :class="{'has-error': newTicket.errors.has('priority')}">
                     <label class="col-md-4 control-label">Priority</label>
                     <div class="col-md-6">
-                        <select class="form-control" name="category_id" v-model="newTicket.priority">
+                        <select class="form-control" name="priority" v-model="newTicket.priority">
                             <option value="">Choose Priority...</option>
-                            <option v-for="pri in priorities" value="pri.id">@{{ pri.name }}</option>
+                            <option v-for="pri in priorities" :value="pri.id">@{{ pri.name }}</option>
                         </select>
                     </div>
                 </div>
