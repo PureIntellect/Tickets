@@ -7,7 +7,8 @@
           <div class="alert alert-info">
               Create a ticket for a customer
           </div>
-          <form class="form-horizontal" role="form">
+          <form action="/pi/tickets" role="form" method="POST" class="form-horizontal">
+            {{ method_field("PUT") }}
             <div class="row">
               <div class="col-md-4">
 
