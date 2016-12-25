@@ -66,14 +66,14 @@
                 <div class="form-group" :class="{'has-error': newTicket.errors.has('title')}">
                   <label class="col-md-2 control-label">Title</label>
                   <div class="col-md-10">
-                    <input type="text" class="form-control" name="title" v-model="newTicket.message" />
+                    <input type="text" class="form-control" name="title" v-model="newTicket.title" />
                   </div>
                 </div>
                 <!-- Ticket -->
                 <div class="form-group" :class="{'has-error': newTicket.errors.has('message')}">
                     <label class="col-md-2 control-label">Ticket</label>
                     <div class="col-md-10">
-                        <textarea class="form-control" name="ticket"  v-model="newTicket.message" rows="6" style="font-family: monospace;">
+                        <textarea class="form-control" name="message"  v-model="newTicket.message" rows="6" style="font-family: monospace;">
                         </textarea>
                     </div>
                 </div>
