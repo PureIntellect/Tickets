@@ -19,7 +19,7 @@ Route::group(['prefix' => 'pi', 'middleware'=>'web'], function($router){
 	Route::group(['prefix' => '/tickets', 'middleware'=>'web'], function($router){
 		$router->get('/', '\PureIntellect\Tickets\Controllers\TicketController@index');
 
-		$router->post('/', 'PureIntellect\Tickets\Controllers\TicketController@store');
+		$router->post('/create', 'PureIntellect\Tickets\Controllers\TicketController@store');
 		$router->get('/create', 'PureIntellect\Tickets\Controllers\TicketController@create');
 
 
