@@ -10,7 +10,6 @@
           <form role="form" class="form-horizontal">
             <div class="row">
               <div class="col-md-4">
-
                 <!-- User -->
                 <div class="form-group" :class="{'has-error': newTicket.errors.has('user_email')}">
                   <span class="help-block" v-show="newTicket.errors.has('user_email')">

@@ -7,8 +7,9 @@ use Illuminate\Support\Facades\Auth;
 
 use PureIntellect\Tickets\Models\Ticket;
 use PureIntellect\Tickets\Models\TicketCategory;
-
-use App\Mailers\AppMailer;
+use PureIntellect\Tickets\Models\TicketPriority;
+use PureIntellect\Tickets\Models\TicketStatus;
+//use App\Mailers\AppMailer;
 
 class TicketController extends Controller
 {
@@ -33,11 +34,11 @@ class TicketController extends Controller
       $ticket = new Ticket([
 				'user_email'	 	=> $request->input('user_email'),
 				'title'					=> $request->input('title'),
-        'ticket_id' 		=> strtoupper(str_random(10)),
         'category'   		=> $request->input('category'),
       	'priority'  		=> $request->input('priority'),
         'message'   		=> $request->input('message'),
       	'status'    		=> $request->input('status') ? $request->input('status') : 1,
+				'ticket_id' 		=> strtoupper(str_random(10)),
       ]);
 
       $ticket->save();
@@ -46,7 +47,8 @@ class TicketController extends Controller
 
 			return response()->json([
 				'status' => 'Success',
-				'message' => "A ticket with ID: #$ticket->ticket_id has been opened."
+				'message' => "A ticket with ID: #$ticket->ticket_id has been opened.",
+				'ticket'	=> "$ticket->ticket_id"
 			]);
 	}
 
