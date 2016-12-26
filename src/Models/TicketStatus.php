@@ -6,4 +6,8 @@ class TicketStatus extends Model
 {
 	protected $table = 'ticket_status';
 
+	public function tickets()
+	{
+		return $this->hasMany(Ticket::class);
+	}
 }

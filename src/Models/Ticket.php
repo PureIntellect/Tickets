@@ -10,11 +10,11 @@ class Ticket extends Model
 
 	public function user()
 	{
-    	return $this->belongsTo(User::class, 'user_email','email');
+    	return $this->hasOne(\App\User::class, 'email','user_email');
 	}
 	public function category()
 	{
-    	return $this->belongsTo(TicketCategory::class,'id','category');
+    	return $this->hasOne(TicketCategory::class,'id','category');
 	}
 	public function comments()
 	{

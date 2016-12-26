@@ -6,4 +6,8 @@ class TicketPriority extends Model
 {
 	protected $table = 'ticket_priority';
 
+	public function tickets()
+	{
+		return $this->hasMany(Ticket::class);
+	}
 }

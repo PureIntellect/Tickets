@@ -53,7 +53,7 @@ class TicketController extends Controller
 
 	public function index()
 	{
-		return Ticket::with('user','category','priority')->get();
+		return Ticket::with('user','category','priority','status')->get();
 	}
 
 	public function show($ticket_id)
