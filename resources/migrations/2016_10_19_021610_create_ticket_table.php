@@ -16,8 +16,8 @@ class CreateTicketTable extends Migration
       Schema::create('tickets', function (Blueprint $table) {
         $table->increments('id');
         $table->string('user_email');
-        $table->integer('category_id')->unsigned();
-        $table->string('ticket_id')->unique();
+        $table->integer('category')->unsigned();
+        $table->string('ticket')->unique();
         $table->string('title');
         $table->string('priority');
         $table->text('message');

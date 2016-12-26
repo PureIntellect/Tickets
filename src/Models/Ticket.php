@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
 	protected $fillable = [
-		'user_email', 'category_id', 'ticket_id', 'title', 'priority', 'message', 'status'
+		'user_email', 'category', 'ticket_id', 'title', 'priority', 'message', 'status'
 	];
 
 	public function user()
@@ -14,7 +14,7 @@ class Ticket extends Model
 	}
 	public function category()
 	{
-    	return $this->belongsTo(TicketCategory::class);
+    	return $this->belongsTo(TicketCategory::class,'id','category');
 	}
 	public function comments()
 	{
@@ -22,10 +22,10 @@ class Ticket extends Model
 	}
 	public function status()
 	{
-			return $this->hasOne(TicketStatus::class);
+			return $this->hasOne(TicketStatus::class, 'id','status');
 	}
 	public function priority()
 	{
-			return $this->hasOne(TicketPriority::class);
+			return $this->hasOne(TicketPriority::class, 'id','priority');
 	}
 }

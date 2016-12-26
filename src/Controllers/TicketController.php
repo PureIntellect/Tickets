@@ -9,7 +9,6 @@ use PureIntellect\Tickets\Models\Ticket;
 use PureIntellect\Tickets\Models\TicketCategory;
 use PureIntellect\Tickets\Models\TicketPriority;
 use PureIntellect\Tickets\Models\TicketStatus;
-//use App\Mailers\AppMailer;
 
 class TicketController extends Controller
 {
@@ -31,15 +30,14 @@ class TicketController extends Controller
 				'message'   	=> 'required'
       ]);
 
-      $ticket = new Ticket([
-				'user_email'	 	=> $request->input('user_email'),
-				'title'					=> $request->input('title'),
-        'category'   		=> $request->input('category'),
-      	'priority'  		=> $request->input('priority'),
-        'message'   		=> $request->input('message'),
-      	'status'    		=> $request->input('status') ? $request->input('status') : 1,
-				'ticket_id' 		=> strtoupper(str_random(10)),
-      ]);
+			$ticket = new Ticket();
+			$ticket->user_email = $request->input('user_email');
+			$ticket->title = $request->input('title');
+			$ticket->priority = $request->input('priority');
+			$ticket->message = $request->input('message');
+			$ticket->category = $request->input('category');
+			$ticket->status = $request->input('status');
+			$ticket->ticket_id = strtoupper(str_random(10));
 
       $ticket->save();
 			//Mail::to(Auth::user()->email)->send(new TicketStatus);
@@ -47,6 +45,7 @@ class TicketController extends Controller
 
 			return response()->json([
 				'status' => 'Success',
+				'code'	 => 200,
 				'message' => "A ticket with ID: #$ticket->ticket_id has been opened.",
 				'ticket'	=> "$ticket->ticket_id"
 			]);
@@ -54,10 +53,7 @@ class TicketController extends Controller
 
 	public function index()
 	{
-		//$tickets = Ticket::where('user_email', Auth::user()->email)->paginate(25);
-		//$categories = TicketCategory::all();
-		//return view('tickets::user', compact('tickets', 'categories'));
-		return Ticket::all();
+		return Ticket::with('user','category','priority')->get();
 	}
 
 	public function show($ticket_id)

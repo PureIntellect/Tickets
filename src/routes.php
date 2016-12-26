@@ -22,7 +22,6 @@ Route::group(['prefix' => 'pi', 'middleware'=>'web'], function($router){
 		$router->post('/create', 'PureIntellect\Tickets\Controllers\TicketController@store');
 		$router->get('/create', 'PureIntellect\Tickets\Controllers\TicketController@create');
 
-
 		$router->get('/{ticket_id}', 'PureIntellect\Tickets\Controllers\TicketController@show');
 		$router->get('/{ticket_id}/edit', 'PureIntellect\Tickets\Controllers\TicketController@edit');
 		$router->post('/{ticket_id}/edit', 'PureIntellect\Tickets\Controllers\TicketController@update');

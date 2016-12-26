@@ -1,8 +1,8 @@
 Vue.component('spark-kiosk-tickets', {
-    props: [
-    ],
+    props: [],
     data() {
         return {
+          'results': [],
           'tickets': [],
           'users': [],
           'categories': [],
@@ -69,8 +69,8 @@ Vue.component('spark-kiosk-tickets', {
         createTicket(){
           Spark.post('/pi/tickets/create', this.newTicket)
             .then(response => {
-              console.log(response);
-              //this.getTickets();
+              this.results = response;
+              this.getTickets();
             });
         }
     }
