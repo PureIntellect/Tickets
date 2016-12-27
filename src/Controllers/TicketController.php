@@ -19,7 +19,7 @@ class TicketController extends Controller
 	public function get($type){
 		switch($type){
 			case "category":
-			case "categories"
+			case "categories":
 			 	return TicketCategory::all();
 
 			case "priority":
