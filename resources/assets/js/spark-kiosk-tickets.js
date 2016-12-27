@@ -1,6 +1,16 @@
 Vue.component('spark-kiosk-tickets', {
     props: [],
     data() {
+        var ticketsCreateForm = function() {
+            return {
+              user_email: '',
+              title: '',
+              category: '',
+              priority: '',
+              status: '',
+              message: ''
+            }
+        };
         return {
           'results': [],
           'tickets': [],
@@ -8,14 +18,9 @@ Vue.component('spark-kiosk-tickets', {
           'categories': [],
           'statuses': [],
           'priorities': [],
-          newTicket: new SparkForm({
-            user_email: '',
-            title:'',
-            category: '',
-            status: '',
-            priority: '',
-            message:'',
-          })
+          newTicket: new SparkForm(ticketsCreateForm()),
+          updateForm: new SparkForm(ticketsCreateForm()),
+          deleteForm: new SparkForm({})
         };
     },
     mounted(){
@@ -68,14 +73,14 @@ Vue.component('spark-kiosk-tickets', {
         editTicket(ticket) {
             this.updatingTicket = ticket;
 
-            this.updateForm.icon = ticket.icon;
-            this.updateForm.body = ticket.body;
-            this.updateForm.action_text = ticket.action_text;
-            this.updateForm.action_url = ticket.action_url;
+            this.updateForm.user_email = ticket.title;
+            this.updateForm.category = ticket.category;
+            this.updateForm.priority = ticket.priority;
+            this.updateForm.status = ticket.status;
+            this.updateForm.message = ticket.message;
 
             $('#modal-update-ticket').modal('show');
         },
-
 
         /**
          * Update the specified announcement.
@@ -84,18 +89,15 @@ Vue.component('spark-kiosk-tickets', {
             Spark.put('/pi/tickets/tickets/' + this.updatingTicket.id, this.updateForm)
                 .then(() => {
                     this.getTickets();
-
                     $('#modal-update-ticket').modal('hide');
                 });
         },
-
 
         /**
          * Show the approval dialog for deleting an announcement.
          */
         approveTicketDelete(ticket) {
             this.deletingTicket = ticket;
-
             $('#modal-delete-ticket').modal('show');
         },
 
