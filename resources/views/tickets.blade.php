@@ -116,7 +116,7 @@
 
               <!-- Title -->
               <td>
-                @{{ ticket.title.name }}
+                @{{ ticket.title }}
               </td>
               <!-- Priority -->
               <td>
@@ -140,6 +140,67 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <!-- Edit Announcement Modal -->
+    <div class="modal fade" id="modal-update-ticket" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" v-if="updatingTicket">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Update Ticket</h4>
+          </div>
+          <div class="modal-body">
+            <!-- Update Ticket -->
+            <form class="form-horizontal" role="form">
+              <!-- Ticket -->
+              <div class="form-group" :class="{'has-error': updateForm.errors.has('body')}">
+                <label class="col-md-4 control-label">Ticket</label>
+                <div class="col-md-6">
+                  <textarea class="form-control" rows="7" v-model="updateForm.message" style="font-family: monospace;"></textarea>
+                  <span class="help-block" v-show="updateForm.errors.has('body')">
+                    @{{ updateForm.errors.get('message') }}
+                  </span>
+                </div>
+              </div>
+              <!-- Category -->
+              <div class="form-group" :class="{'has-error': updateForm.errors.has('category')}">
+                <label class="col-md-4 control-label">Action Button Text</label>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="category" v-model="updateForm.category">
+                  <span class="help-block" v-show="updateForm.errors.has('category')">
+                    @{{ updateForm.errors.get('category') }}
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Modal Actions -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" @click="update" :disabled="updateForm.busy">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Announcement Modal -->
+    <div class="modal fade" id="modal-delete-ticket" tabindex="-1" role="dialog">
+      <div class="modal-dialog" v-if="deletingTicket">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Delete Announcement</h4>
+          </div>
+          <div class="modal-body">Are you sure you want to delete this announcement?</div>
+          <!-- Modal Actions -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+            <button type="button" class="btn btn-danger" @click="deleteTicket" :disabled="deleteForm.busy">Yes, Delete</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

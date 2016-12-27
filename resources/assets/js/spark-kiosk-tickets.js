@@ -30,7 +30,7 @@ Vue.component('spark-kiosk-tickets', {
          * Get all of the Tickets.
          */
         getTickets: function(){
-            this.$http.get('/pi/tickets')
+            this.$http.get('/pi/tickets/tickets')
                 .then(response => {
                     this.tickets = response.data;
                 });
@@ -40,26 +40,26 @@ Vue.component('spark-kiosk-tickets', {
          * Get all of the users.
          */
         getUsers: function(){
-            this.$http.get('/pi/users')
+            this.$http.get('/pi/tickets/users')
               .then(response => { this.users = response.data; });
         },
         getCategories: function(){
-            this.$http.get('/pi/categories')
+            this.$http.get('/pi/tickets/categories')
               .then(response => { this.categories = response.data; });
         },
         getStatuses: function(){
-            this.$http.get('/pi/statuses')
+            this.$http.get('/pi/tickets/statuses')
               .then(response => { this.statuses = response.data; });
         },
         getPriorities: function(){
-          this.$http.get('/pi/priorities')
+          this.$http.get('/pi/tickets/priorities')
             .then(response => { this.priorities = response.data;});
         },
         /**
          * Create Ticket.
          */
         createTicket(){
-          Spark.post('/pi/tickets/create', this.newTicket)
+          Spark.post('/pi/tickets/tickets', this.newTicket)
             .then(response => {
               this.results = response;
               this.getTickets();
@@ -67,7 +67,7 @@ Vue.component('spark-kiosk-tickets', {
         }
         editTicket(ticket) {
             this.updatingTicket = ticket;
-            
+
             this.updateForm.icon = ticket.icon;
             this.updateForm.body = ticket.body;
             this.updateForm.action_text = ticket.action_text;
@@ -81,7 +81,7 @@ Vue.component('spark-kiosk-tickets', {
          * Update the specified announcement.
          */
         update() {
-            Spark.put('/pi/tickets/' + this.updatingTicket.id, this.updateForm)
+            Spark.put('/pi/tickets/tickets/' + this.updatingTicket.id, this.updateForm)
                 .then(() => {
                     this.getTickets();
 
@@ -103,11 +103,10 @@ Vue.component('spark-kiosk-tickets', {
         /**
          * Delete the specified announcement.
          */
-        deleteAnnouncement() {
-            Spark.delete('/pi/tickets/' + this.deletingTicket.id, this.deleteForm)
+        deleteTicket() {
+            Spark.delete('/pi/tickets/tickets/tickets/' + this.deletingTicket.id, this.deleteForm)
                 .then(() => {
-                    this.getAnnouncements();
-
+                    this.getTickets();
                     $('#modal-delete-ticket').modal('hide');
                 });
         }
