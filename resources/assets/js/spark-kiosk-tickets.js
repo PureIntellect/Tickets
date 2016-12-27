@@ -40,19 +40,19 @@ Vue.component('spark-kiosk-tickets', {
          * Get all of the users.
          */
         getUsers: function(){
-            this.$http.get('/pi/tickets/users')
+            this.$http.get('/pi/tickets/get/users')
               .then(response => { this.users = response.data; });
         },
         getCategories: function(){
-            this.$http.get('/pi/tickets/categories')
+            this.$http.get('/pi/tickets/get/categories')
               .then(response => { this.categories = response.data; });
         },
         getStatuses: function(){
-            this.$http.get('/pi/tickets/statuses')
+            this.$http.get('/pi/tickets/get/statuses')
               .then(response => { this.statuses = response.data; });
         },
         getPriorities: function(){
-          this.$http.get('/pi/tickets/priorities')
+          this.$http.get('/pi/tickets/get/priorities')
             .then(response => { this.priorities = response.data;});
         },
         /**
@@ -104,7 +104,7 @@ Vue.component('spark-kiosk-tickets', {
          * Delete the specified announcement.
          */
         deleteTicket() {
-            Spark.delete('/pi/tickets/tickets/tickets/' + this.deletingTicket.id, this.deleteForm)
+            Spark.delete('/pi/tickets/tickets/' + this.deletingTicket.id, this.deleteForm)
                 .then(() => {
                     this.getTickets();
                     $('#modal-delete-ticket').modal('hide');
