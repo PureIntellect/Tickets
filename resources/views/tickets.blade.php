@@ -144,9 +144,9 @@
     </div>
 
     <!-- Update Ticket Modal -->
-    @include('tickets.update_modal')
+    @include('Tickets::update_modal')
 
     <!-- Delete Announcement Modal -->
-    @include('tickets.delete_modal')
+    @include('Tickets::delete_modal')
   </div>
 </spark-kiosk-tickets>

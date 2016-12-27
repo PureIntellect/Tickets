@@ -13,8 +13,8 @@ class TicketsServiceProvider extends ServiceProvider
 	 public function boot(){
 	 	require __DIR__ . '/../../../autoload.php';
 
-	 	$this->loadViewsFrom(__DIR__.'/../resources/views', 'tickets');
-		$this->mergeConfigFrom(__DIR__.'/../config/tickets.php', 'tickets');
+	 	$this->loadViewsFrom(__DIR__.'/../resources/views', 'Tickets');
+		$this->mergeConfigFrom(__DIR__.'/../config/tickets.php', 'Tickets');
 		$this->publishes([
 			__DIR__.'/../config/tickets.php' => config_path('tickets.php'),
 			__DIR__.'/../resources/assets/js/' => base_path('resources/assets/js/components/'),
