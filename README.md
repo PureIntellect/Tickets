@@ -38,6 +38,8 @@ This package is still in initial development. Feel free to contribute to speed u
 </div>
 
 require('./spark-kiosk-tickets');
+
+php artisan vendor:publish --provider="PureIntellect\Tickets\TicketsServiceProvider"
 ```
 
 
