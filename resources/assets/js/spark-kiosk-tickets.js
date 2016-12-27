@@ -12,6 +12,8 @@ Vue.component('spark-kiosk-tickets', {
             }
         };
         return {
+          updatingTicket: null,
+          deletingTicket: null,
           'results': [],
           'tickets': [],
           'users': [],
