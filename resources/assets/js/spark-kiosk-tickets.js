@@ -64,7 +64,7 @@ Vue.component('spark-kiosk-tickets', {
               this.results = response;
               this.getTickets();
             });
-        }
+        },
         editTicket(ticket) {
             this.updatingTicket = ticket;
 
