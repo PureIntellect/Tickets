@@ -4,8 +4,11 @@
     <div class="panel panel-default">
       <div class="panel-heading">Create Ticket</div>
       <div class="panel-body">
-          <div class="alert alert-info">
+          <div class="alert alert-info alert-dismissible" v-if="results == null">
               Create a ticket for a customer
+          </div>
+          <div class="alert alert-success alert-dismissible" v-if="results.status=='Success'">
+              @{{ results.message }}
           </div>
           <form role="form" class="form-horizontal">
             <div class="row">
@@ -113,21 +116,20 @@
 
               <!-- Title -->
               <td>
-                @{{ ticket.title }}
+                @{{ ticket.title.name }}
               </td>
               <!-- Priority -->
               <td>
-                @{{ ticket.priority }}
+                @{{ ticket.priority.name }}
               </td>
               <!-- Category -->
               <td>
-                @{{ticket.category}}
+                @{{ticket.category.name }}
               </td>
               <!-- Status -->
               <td>
-                @{{ticket.status}}
+                @{{ticket.status.name }}
               </td>
-
 
               <!-- Edit Button -->
               <td>

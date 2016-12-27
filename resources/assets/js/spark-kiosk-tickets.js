@@ -41,27 +41,19 @@ Vue.component('spark-kiosk-tickets', {
          */
         getUsers: function(){
             this.$http.get('/pi/users')
-                .then(response => {
-                    this.users = response.data;
-                });
+              .then(response => { this.users = response.data; });
         },
         getCategories: function(){
             this.$http.get('/pi/categories')
-                .then(response => {
-                    this.categories = response.data;
-                });
+              .then(response => { this.categories = response.data; });
         },
         getStatuses: function(){
             this.$http.get('/pi/statuses')
-                .then(response => {
-                    this.statuses = response.data;
-                });
+              .then(response => { this.statuses = response.data; });
         },
         getPriorities: function(){
-            this.$http.get('/pi/priorities')
-                .then(response => {
-                    this.priorities = response.data;
-                });
+          this.$http.get('/pi/priorities')
+            .then(response => { this.priorities = response.data;});
         },
         /**
          * Create Ticket.
@@ -72,6 +64,52 @@ Vue.component('spark-kiosk-tickets', {
               this.results = response;
               this.getTickets();
             });
+        }
+        editTicket(ticket) {
+            this.updatingTicket = ticket;
+            
+            this.updateForm.icon = ticket.icon;
+            this.updateForm.body = ticket.body;
+            this.updateForm.action_text = ticket.action_text;
+            this.updateForm.action_url = ticket.action_url;
+
+            $('#modal-update-ticket').modal('show');
+        },
+
+
+        /**
+         * Update the specified announcement.
+         */
+        update() {
+            Spark.put('/pi/tickets/' + this.updatingTicket.id, this.updateForm)
+                .then(() => {
+                    this.getTickets();
+
+                    $('#modal-update-ticket').modal('hide');
+                });
+        },
+
+
+        /**
+         * Show the approval dialog for deleting an announcement.
+         */
+        approveTicketDelete(ticket) {
+            this.deletingTicket = ticket;
+
+            $('#modal-delete-ticket').modal('show');
+        },
+
+
+        /**
+         * Delete the specified announcement.
+         */
+        deleteAnnouncement() {
+            Spark.delete('/pi/tickets/' + this.deletingTicket.id, this.deleteForm)
+                .then(() => {
+                    this.getAnnouncements();
+
+                    $('#modal-delete-ticket').modal('hide');
+                });
         }
     }
 });
