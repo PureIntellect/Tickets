@@ -27,7 +27,7 @@ class TicketController extends Controller
 				return TicketPriority::all();
 
 			case "status":
-			case "statuses:"
+			case "statuses":
 				return TicketStatus::all();
 
 			default: return response()->json([]);
