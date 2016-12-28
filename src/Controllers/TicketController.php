@@ -62,4 +62,36 @@ class TicketController extends Controller
 				'ticket'	=> "$ticket->ticket_id"
 			]);
 	}
+
+	public function update(Request $request, $id)
+	{
+		$this->validate($request, [
+			'user_email'	=> 'required|email',
+			'title'				=> 'required',
+			'category'  	=> 'required',
+			'priority'  	=> 'required',
+			'message'   	=> 'required'
+		]);
+
+		$ticket = Ticket::findOrFail($id);
+		$ticket->user_email = $request->input('user_email');
+		$ticket->title = $request->input('title');
+		$ticket->priority = $request->input('priority');
+		$ticket->message = $request->input('message');
+		$ticket->category = $request->input('category');
+		$ticket->status = $request->input('status');
+	}
+
+	public function destroy($id)
+	{
+			$ticket = Ticket::findOrFail($id);
+			$ticket->delete();
+
+			return response()->json([
+				'status' => 'Success',
+				'code'	 => 200,
+				'message' => "Ticket: #$ticket->ticket_id has been deleted.",
+				'ticket'	=> "$ticket->ticket_id"
+			]);
+	}
 }
