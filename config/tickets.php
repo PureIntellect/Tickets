@@ -2,7 +2,7 @@
 
 return [
   // When emails are sent who are they from
-  send => [
+  'send' => [
       'from' => 'PureIntellect.Com Support Team',
       'signature' => '',
   ],
