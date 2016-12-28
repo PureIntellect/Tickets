@@ -12,14 +12,14 @@
           <div class="row">
             <div class="col-md-4">
               <!-- User -->
-              <div class="form-group" :class="{'has-error': updateForm.errors.has('user_email')}">
-                <span class="help-block" v-show="updateForm.errors.has('user_email')">
+              <div class="form-group" :class="{'has-error': updateForm.errors.has('user')}">
+                <span class="help-block" v-show="updateForm.errors.has('user')">
                   @{{ updateForm.errors.get('user_email') }}
                 </span>
                   <label class="col-md-4 control-label">User</label>
                   <div class="col-md-6">
-                      <select class="form-control" name="user_email" v-model="updateForm.user_email">
-                          <option value="">Choose User...</option>
+                      <select class="form-control" name="user_email" v-model="updateForm.user">
+                          <option value="@{{updateForm.user.id}}">@{{ updateForm.user.name }}</option>
                           <option v-for="usr in users" :value="usr.email">@{{ usr.name }}</option>
                       </select>
                   </div>

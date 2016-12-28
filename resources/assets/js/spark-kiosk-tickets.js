@@ -3,6 +3,8 @@ Vue.component('spark-kiosk-tickets', {
     data() {
         var ticketsCreateForm = function() {
             return {
+              id:'',
+              user: '',
               user_email: '',
               title: '',
               category: '',
@@ -75,7 +77,8 @@ Vue.component('spark-kiosk-tickets', {
         editTicket(ticket) {
             this.updatingTicket = ticket;
 
-            this.updateForm.user_email = ticket.title;
+            this.updateForm.title = ticket.title;
+            this.updateForm.user = ticket.user;
             this.updateForm.category = ticket.category;
             this.updateForm.priority = ticket.priority;
             this.updateForm.status = ticket.status;

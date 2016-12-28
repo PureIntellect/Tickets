@@ -24,32 +24,24 @@
               </td>
 
               <!-- Title -->
-              <td>
-                @{{ ticket.title }}
-              </td>
+              <td>@{{ ticket.title }}</td>
               <!-- Priority -->
-              <td>
-                @{{ ticket.priority.name }}
-              </td>
+              <td>@{{ ticket.priority.name }}</td>
               <!-- Category -->
-              <td>
-                @{{ticket.category.name }}
-              </td>
+              <td>@{{ticket.category.name }}</td>
               <!-- Status -->
-              <td>
-                @{{ticket.status.name }}
-              </td>
+              <td>@{{ticket.status.name }}</td>
 
               <!-- Edit Button -->
               <td>
                 <button class="btn btn-primary" data-toggle="tooltip" title="Edit" @click="editTicket(ticket)">
                   <i class="fa fa-pencil"></i>
                 </button>
-                <button class="btn btn-primary" data-toggle="tooltip" title="Delete" @click="deleteTicket(ticket)">
-                  <i class="fa fa-trash"></i>
-                </button>
-                <button class="btn btn-primary" data-toggle="tooltip" title="Comment" @click="commentTicket(ticket)">
+                <button class="btn btn-success" data-toggle="tooltip" title="Comment" @click="commentTicket(ticket)">
                   <i class="fa fa-commenting"></i>
+                </button>
+                <button class="btn btn-danger" data-toggle="tooltip" title="Delete" @click="deleteTicket(ticket)">
+                  <i class="fa fa-trash"></i>
                 </button>
               </td>
             </tr>

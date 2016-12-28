@@ -30,6 +30,9 @@ class TicketController extends Controller
 			case "statuses":
 				return TicketStatus::all();
 
+			case "users":
+				return \App\User::all();
+
 			default: return response()->json([]);
 		}
 	}
@@ -45,7 +48,7 @@ class TicketController extends Controller
       ]);
 
 			$ticket = new Ticket();
-			$ticket->user_email = $request->input('user_email');
+			$ticket->user = $request->input('user');
 			$ticket->title = $request->input('title');
 			$ticket->priority = $request->input('priority');
 			$ticket->message = $request->input('message');
@@ -74,7 +77,7 @@ class TicketController extends Controller
 		]);
 
 		$ticket = Ticket::findOrFail($id);
-		$ticket->user_email = $request->input('user_email');
+		$ticket->user = $request->input('user');
 		$ticket->title = $request->input('title');
 		$ticket->priority = $request->input('priority');
 		$ticket->message = $request->input('message');

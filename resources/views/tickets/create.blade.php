@@ -11,15 +11,15 @@
         <div class="row">
           <div class="col-md-4">
             <!-- User -->
-            <div class="form-group" :class="{'has-error': newTicket.errors.has('user_email')}">
-              <span class="help-block" v-show="newTicket.errors.has('user_email')">
-                @{{ newTicket.errors.get('user_email') }}
+            <div class="form-group" :class="{'has-error': newTicket.errors.has('user')}">
+              <span class="help-block" v-show="newTicket.errors.has('user')">
+                @{{ newTicket.errors.get('user') }}
               </span>
                 <label class="col-md-4 control-label">User</label>
                 <div class="col-md-6">
-                    <select class="form-control" name="user_email" v-model="newTicket.user_email">
+                    <select class="form-control" name="user_email" v-model="newTicket.user">
                         <option value="">Choose User...</option>
-                        <option v-for="usr in users" :value="usr.email">@{{ usr.name }}</option>
+                        <option v-for="usr in users" :value="usr.id">@{{ usr.name }}</option>
                     </select>
                 </div>
             </div>
