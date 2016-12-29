@@ -18,8 +18,8 @@
                 </span>
                   <label class="col-md-4 control-label">User</label>
                   <div class="col-md-6">
-                      <select class="form-control" name="user_email" v-model="updateForm.user">
-                        <option v-for="usr in users" :value="usr.email">@{{ usr.name }}</option>
+                      <select class="form-control" name="user" v-model="updateForm.user">
+                        <option v-for="usr in users" :value="usr.id">@{{ usr.name }}</option>
                       </select>
                   </div>
               </div>
