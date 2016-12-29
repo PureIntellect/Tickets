@@ -112,7 +112,8 @@ Vue.component('spark-kiosk-tickets', {
          */
         deleteTicket() {
             Spark.delete('/pi/tickets/tickets/' + this.deletingTicket.id, this.deleteForm)
-                .then(() => {
+                .then(response => {
+                    this.results = response;
                     this.getTickets();
                     $('#modal-delete-ticket').modal('hide');
                 });

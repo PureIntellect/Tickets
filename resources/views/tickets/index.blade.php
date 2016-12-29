@@ -40,7 +40,7 @@
                 <button class="btn btn-success" data-toggle="tooltip" title="Comment" @click="commentTicket(ticket)">
                   <i class="fa fa-commenting"></i>
                 </button>
-                <button class="btn btn-danger" data-toggle="tooltip" title="Delete" @click="deleteTicket(ticket)">
+                <button class="btn btn-danger" data-toggle="tooltip" title="Delete" @click="approveTicketDelete(ticket)">
                   <i class="fa fa-trash"></i>
                 </button>
               </td>
