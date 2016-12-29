@@ -78,10 +78,10 @@ Vue.component('spark-kiosk-tickets', {
             this.updatingTicket = ticket;
 
             this.updateForm.title = ticket.title;
-            this.updateForm.user = ticket.user;
-            this.updateForm.category = ticket.category;
-            this.updateForm.priority = ticket.priority;
-            this.updateForm.status = ticket.status;
+            this.updateForm.user = ticket.user.id;
+            this.updateForm.category = ticket.category.id;
+            this.updateForm.priority = ticket.priority.id;
+            this.updateForm.status = ticket.status.id;
             this.updateForm.message = ticket.message;
 
             $('#modal-update-ticket').modal('show');

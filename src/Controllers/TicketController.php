@@ -40,7 +40,7 @@ class TicketController extends Controller
 	public function store(Request $request)
 	{
     	$this->validate($request, [
-				'user_email'	=> 'required|email',
+				'user'				=> 'required',
 				'title'				=> 'required',
 				'category'  	=> 'required',
 				'priority'  	=> 'required',
