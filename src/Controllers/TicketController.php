@@ -83,6 +83,14 @@ class TicketController extends Controller
 		$ticket->message = $request->input('message');
 		$ticket->category = $request->input('category');
 		$ticket->status = $request->input('status');
+
+		$ticket->save();
+		return response()->json([
+			'status' => 'Update Successful',
+			'code'	 => 200,
+			'message' => ": #$ticket->ticket_id has been updated.",
+			'ticket'	=> "$ticket->ticket_id"
+		]);
 	}
 
 	public function destroy($id)
