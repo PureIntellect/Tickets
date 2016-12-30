@@ -2,20 +2,7 @@
 
 /* Public Routes */
 
-Route::group(['prefix' => 'pi/tickets', 'middleware'=>'web'], function($router){
-	$router->get('/users', function(){
-    return \App\User::all();
-	});
-	$router->get('/categories', function(){
-		return \PureIntellect\Tickets\Models\TicketCategory::all();
-	});
-	$router->get('/statuses', function(){
-		return \PureIntellect\Tickets\Models\TicketStatus::all();
-	});
-	$router->get('/priorities', function(){
-		return \PureIntellect\Tickets\Models\TicketPriority::all();
-	});
-
+Route::group(['prefix' => 'pi/tickets', 'middleware'=>['web','dev']], function($router){
 	$router->get('/get/{type}', '\PureIntellect\Tickets\Controllers\TicketController@get');
 
 	$router->get('/tickets', '\PureIntellect\Tickets\Controllers\TicketController@all');

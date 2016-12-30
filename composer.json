@@ -1,24 +1,27 @@
 {
 	"name": "pureintellect/tickets",
-	"description": "Laravel Ticketing system",
+	"description": "Laravel Spark Ticketing system",
+	"license": "MIT",
+	"keywords": [
+		"spark",
+		"ticket",
+		"trouble ticket",
+		"support log"
+	],
 	"authors": [
 		{
 			"name": "PureIntellect.Com",
-			"email": "github@pureintellect.com",
+			"email": "support@pureintellect.com",
 			"homepage": "https://www.pureintellect.com"
 		}
 	],
-	"license": "MIT",
-	"minimum-stability": "dev",
-	"require": {
-		"php": ">=5.5.9"
-	},
+	"homepage": "https://www.github.com/pureintellect.com/tickets",
 	"autoload": {
 		"classmap": [
 			"src/"
 		],
 		"psr-4": {
-			"PureIntellect\\Tickets\\": "/packages/pureintellect/tickets/src/"
+			"PureIntellect\\Tickets\\": "src/"
 		}
 	}
 }

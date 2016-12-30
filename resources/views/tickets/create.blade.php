@@ -17,7 +17,7 @@
               </span>
                 <label class="col-md-4 control-label">User</label>
                 <div class="col-md-6">
-                    <select class="form-control" name="user_email" v-model="newTicket.user">
+                    <select class="form-control" name="user" v-model="newTicket.user">
                         <option value="">Choose User...</option>
                         <option v-for="usr in users" :value="usr.id">@{{ usr.name }}</option>
                     </select>

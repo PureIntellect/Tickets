@@ -32,7 +32,6 @@
               <!-- Status -->
               <td>@{{ticket.status.name }}</td>
 
-              <!-- Edit Button -->
               <td>
                 <button class="btn btn-primary" data-toggle="tooltip" title="Edit" @click="editTicket(ticket)">
                   <i class="fa fa-pencil"></i>
@@ -53,7 +52,7 @@
     <!-- Update Ticket Modal -->
     @include('Tickets::tickets.update_modal')
 
-    <!-- Delete Announcement Modal -->
+    <!-- Delete Ticket Modal -->
     @include('Tickets::tickets.delete_modal')
   </div>
 </spark-kiosk-tickets>
