@@ -39,7 +39,7 @@ Vue.component('spark-kiosk-tickets', {
          * Get all of the Tickets.
          */
         getTickets: function(){
-            this.$http.get('/pi/tickets/tickets')
+            axios.get('/pi/tickets/tickets')
                 .then(response => {
                     this.tickets = response.data;
                 });
@@ -49,19 +49,19 @@ Vue.component('spark-kiosk-tickets', {
          * Get all of the users.
          */
         getUsers: function(){
-            this.$http.get('/pi/tickets/get/users')
+            axios.get('/pi/tickets/get/users')
               .then(response => { this.users = response.data; });
         },
         getCategories: function(){
-            this.$http.get('/pi/tickets/get/categories')
+            axios.get('/pi/tickets/get/categories')
               .then(response => { this.categories = response.data; });
         },
         getStatuses: function(){
-            this.$http.get('/pi/tickets/get/statuses')
+            axios.get('/pi/tickets/get/statuses')
               .then(response => { this.statuses = response.data; });
         },
         getPriorities: function(){
-          this.$http.get('/pi/tickets/get/priorities')
+          axios.get('/pi/tickets/get/priorities')
             .then(response => { this.priorities = response.data;});
         },
         /**
@@ -117,6 +117,10 @@ Vue.component('spark-kiosk-tickets', {
                     this.getTickets();
                     $('#modal-delete-ticket').modal('hide');
                 });
+        },
+        showComment(ticket) {
+          $('#ticket-comment').show();
+          $('spark-kiosk-tickets').hide();
         }
     }
 });
